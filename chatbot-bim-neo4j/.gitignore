@@ -1,0 +1,18 @@
+# Ambiente Virtual
+venv/
+myenv/
+
+# Ficheiros de Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ficheiros do Rasa
+.rasa/
+models/*.tar.gz
+results/
+
+# Ficheiros de IDE
+.idea/
+.vscode/

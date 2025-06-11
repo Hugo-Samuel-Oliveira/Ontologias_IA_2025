@@ -1,0 +1,37 @@
+# domain.yml
+version: "3.1"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - saudacao
+  - despedida
+  - contar_elementos_por_tipo:
+      use_entities:
+        - tipo_ifc
+
+entities:
+  - tipo_ifc
+
+slots:
+  tipo_ifc:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: tipo_ifc
+
+responses:
+  utter_saudacao:
+    - text: "Olá! Sou seu assistente de projetos BIM. Como posso lhe ajudar a consultar o modelo?"
+  utter_despedida:
+    - text: "Até mais! Se precisar de algo, estarei aqui."
+  utter_fallback_geral:
+    - text: "Desculpe, não entendi. Poderia tentar de outra forma?"
+  utter_ajudar_mais:
+    - text: "Posso ajudar com mais alguma coisa?"
+
+actions:
+  # É crucial listar a nossa ação customizada aqui!
+  - action_contar_elementos_neo4j
